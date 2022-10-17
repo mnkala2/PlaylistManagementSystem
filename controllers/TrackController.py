@@ -61,9 +61,7 @@ class TrackController(Resource):
   
 
         db.session.commit()
-        return jsonify({
-            'Message': f'Track {title} altered.'
-        })
+        return jsonify(track_schema.dump(track))
 
     @staticmethod
     def delete():

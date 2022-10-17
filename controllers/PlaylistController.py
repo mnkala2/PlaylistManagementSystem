@@ -36,9 +36,8 @@ class PlaylistController(Resource):
         playlist = PlaylistModel.Playlist(name)
         db.session.add(playlist)
         db.session.commit()
-        return jsonify({
-            'Message': f'Playlist {name} inserted.'
-        })
+
+        return jsonify(track_schema.dump(playlist))
 
     @staticmethod
     def put():
@@ -50,14 +49,11 @@ class PlaylistController(Resource):
 
         name = request.json['name']
     
-        playlist.name = name 
-   
+        playlist.name = name  
   
-
         db.session.commit()
-        return jsonify({
-            'Message': f'Playlist {title} altered.'
-        })
+
+        return jsonify(track_schema.dump(track))
 
     @staticmethod
     def delete():

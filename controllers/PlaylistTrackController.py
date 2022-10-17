@@ -22,9 +22,9 @@ class PlaylistTrackController(Resource):
         except Exception as _: playlisttrack_id = None
 
         if not playlisttrack_id:
-            playlisttracks = PlaylistTrack.query.all()
+            playlisttracks = PlaylistTrackModel.PlaylistTrack.query.all()
             return jsonify(playlisttracks_schema.dump(playlisttracks))
-        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+        playlisttrack = PlaylistTrackModel.PlaylistTrack.query.get(playlisttrack_id)
         return jsonify(playlisttrack_schema.dump(playlisttrack))
 
     @staticmethod
@@ -32,12 +32,11 @@ class PlaylistTrackController(Resource):
         playlist_id = request.json['playlist_id']
         track_id = request.json['track_id']
 
-        playlisttrack = PlaylistTrack(playlist_id, track_id)
+        playlisttrack = PlaylistTrackModel.PlaylistTrack(playlist_id, track_id)
         db.session.add(playlisttrack)
         db.session.commit()
-        return jsonify({
-            'Message': f'Playlist {playlist_id} inserted.'
-        })
+
+        return jsonify(playlisttrack_schema.dump(playlisttrack))
 
     @staticmethod
     def put():
@@ -45,7 +44,7 @@ class PlaylistTrackController(Resource):
         except Exception as _: playlisttrack_id = None
         if not playlisttrack_id:
             return jsonify({ 'Message': 'Must provide the playlist ID' })
-        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+        playlisttrack = PlaylistTrackModel.PlaylistTrack.query.get(playlisttrack_id)
 
         playlist_id = request.json['playlist_id']
         track_id = request.json['track_id']
@@ -66,7 +65,7 @@ class PlaylistTrackController(Resource):
         except Exception as _: playlisttrack_id = None
         if not playlisttrack_id:
             return jsonify({ 'Message': 'Must provide the playlist ID' })
-        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+        playlisttrack = PlaylistTrackModel.PlaylistTrack.query.get(playlisttrack_id)
 
         db.session.delete(playlisttrack)
         db.session.commit()

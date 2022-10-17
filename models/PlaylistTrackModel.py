@@ -6,7 +6,7 @@ class PlaylistTrack(db.Model):
     playlist_id = db.Column(db.Integer)
     track_id = db.Column(db.Integer)
 
-    def __init__(self, name):
+    def __init__(self, playlist_id, track_id):
         self.playlist_id = playlist_id
         self.track_id = track_id      
  
