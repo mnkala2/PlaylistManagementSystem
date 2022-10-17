@@ -1,4 +1,11 @@
 
+I used the below components to complete the solution
+
+Python — a fantastic programming language used widely for all types of tasks
+
+Flask-RESTful — an extension of the Flask library. Enables us to develop APIs quickly
+
+SQLAlchemy — an ORM (Object Relational Mapper). Helps us to communicate with the database without writing SQL
 
 
 Theoretical Questions
