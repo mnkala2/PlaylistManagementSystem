@@ -9,3 +9,4 @@ class Track(db.Model):
     def __init__(self, title, track_format):
         self.title = title
         self.track_format = track_format
+

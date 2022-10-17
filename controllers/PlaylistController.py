@@ -8,7 +8,19 @@ from common.database.db import db
 
 from common.util.marshal import ma
 
+import logging
 
+# Get logger
+logger = logging.getLogger("Playlist Controller Logger")
+
+# Create a handler
+c_handler = logging.StreamHandler()
+
+# link handler to logger
+logger.addHandler(c_handler)
+
+# Set logging level to the logger
+logger.setLevel(logging.DEBUG) # <-- THIS!
 
 class PlaylistSchema(ma.Schema):
     class Meta: 
@@ -20,6 +32,8 @@ playlists_schema = PlaylistSchema(many=True)
 class PlaylistController(Resource):
     @staticmethod
     def get():
+        logger.debug('Executing get playist') 
+
         try: playlist_id = request.args['playlist_id']
         except Exception as _: playlist_id = None
 

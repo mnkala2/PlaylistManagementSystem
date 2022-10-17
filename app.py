@@ -8,6 +8,23 @@ from controllers import TrackController
 from controllers import PlaylistController
 from controllers import PlaylistTrackController
 
+import logging
+
+# Get logger
+logger = logging.getLogger("my logger")
+
+# Create a handler
+c_handler = logging.StreamHandler()
+
+# link handler to logger
+logger.addHandler(c_handler)
+
+# Set logging level to the logger
+logger.setLevel(logging.DEBUG) # <-- THIS!
+
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logger.debug('executing application')
+
 app = Flask(__name__) 
 api = Api(app) 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///PlaylistManagementDB.db' 

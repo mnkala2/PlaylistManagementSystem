@@ -8,6 +8,20 @@ from common.database.db import db
 
 from common.util.marshal import ma
 
+import logging
+
+# Get logger
+logger = logging.getLogger("Playlist Controller Logger")
+
+# Create a handler
+c_handler = logging.StreamHandler()
+
+# link handler to logger
+logger.addHandler(c_handler)
+
+# Set logging level to the logger
+logger.setLevel(logging.DEBUG) # <-- THIS!
+
 class PlaylistTrackSchema(ma.Schema):
     class Meta: 
         fields = ('playlisttrack_id','playlist_id', 'track_id')
@@ -18,6 +32,7 @@ playlisttracks_schema = PlaylistTrackSchema(many=True)
 class PlaylistTrackController(Resource):
     @staticmethod
     def get():
+        logger.debug('Executing get Playlist Tracks') 
         try: playlisttrack_id = request.args['playlisttrack_id']
         except Exception as _: playlisttrack_id = None
 

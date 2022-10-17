@@ -8,6 +8,20 @@ from common.database.db import db
 
 from common.util.marshal import ma
 
+import logging
+
+# Get logger
+logger = logging.getLogger("Track Controller Logger")
+
+# Create a handler
+c_handler = logging.StreamHandler()
+
+# link handler to logger
+logger.addHandler(c_handler)
+
+# Set logging level to the logger
+logger.setLevel(logging.DEBUG) # <-- THIS!
+
 
 class TrackSchema(ma.Schema):
     class Meta: 
@@ -21,6 +35,9 @@ class TrackController(Resource):
     
     @staticmethod
     def get():
+
+        logger.debug('Executing get Tracks') 
+
         try: track_id = request.args['track_id']
         except Exception as _: track_id = None
 
