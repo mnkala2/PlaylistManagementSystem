@@ -30,6 +30,15 @@ class Playlist(db.Model):
 
     def __init__(self, name):
         self.name = name
+
+class PlaylistTrack(db.Model):
+    playlisttrack_id = db.Column(db.Integer, primary_key=True)
+    playlist_id = db.Column(db.Integer)
+    track_id = db.Column(db.Integer)
+
+    def __init__(self, name):
+        self.playlist_id = playlist_id
+        self.track_id = track_id      
  
    
 with app.app_context():
@@ -125,10 +134,9 @@ class PlaylistManager(Resource):
 
     @staticmethod
     def post():
-        name = request.json['name']
-        
+        name = request.json['name']        
 
-        playlist = Track(name)
+        playlist = Playlist(name)
         db.session.add(playlist)
         db.session.commit()
         return jsonify({
@@ -169,10 +177,77 @@ class PlaylistManager(Resource):
             'Message': f'Playlist {str(playlist_id)} deleted.'
         })
 
+class PlaylistTrackSchema(ma.Schema):
+    class Meta: 
+        fields = ('playlisttrack_id','playlist_id', 'track_id')
+
+playlisttrack_schema = PlaylistTrackSchema()
+playlisttracks_schema = PlaylistTrackSchema(many=True)
+
+class PlaylistTrackManager(Resource):
+    @staticmethod
+    def get():
+        try: playlisttrack_id = request.args['playlisttrack_id']
+        except Exception as _: playlisttrack_id = None
+
+        if not playlisttrack_id:
+            playlisttracks = PlaylistTrack.query.all()
+            return jsonify(playlisttracks_schema.dump(playlisttracks))
+        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+        return jsonify(playlisttrack_schema.dump(playlisttrack))
+
+    @staticmethod
+    def post():
+        playlist_id = request.json['playlist_id']
+        track_id = request.json['track_id']
+
+        playlisttrack = PlaylistTrack(playlist_id, track_id)
+        db.session.add(playlisttrack)
+        db.session.commit()
+        return jsonify({
+            'Message': f'Playlist {playlist_id} inserted.'
+        })
+
+    @staticmethod
+    def put():
+        try: playlisttrack_id = request.args['playlisttrack_id']
+        except Exception as _: playlisttrack_id = None
+        if not playlisttrack_id:
+            return jsonify({ 'Message': 'Must provide the playlist ID' })
+        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+
+        playlist_id = request.json['playlist_id']
+        track_id = request.json['track_id']
+    
+        playlisttrack.playlist_id = playlist_id
+        playlisttrack.track_id = track_id 
+   
+  
+
+        db.session.commit()
+        return jsonify({
+            'Message': f'Playlist {playlist_id} altered.'
+        })
+
+    @staticmethod
+    def delete():
+        try: playlisttrack_id = request.args['playlisttrack_id']
+        except Exception as _: playlisttrack_id = None
+        if not playlisttrack_id:
+            return jsonify({ 'Message': 'Must provide the playlist ID' })
+        playlisttrack = PlaylistTrack.query.get(playlisttrack_id)
+
+        db.session.delete(playlisttrack)
+        db.session.commit()
+
+        return jsonify({
+            'Message': f'Playlisttrack {str(playlisttrack_id)} deleted.'
+        })
 
 
 api.add_resource(TrackManager, '/api/tracks')
 api.add_resource(PlaylistManager, '/api/playlists')
+api.add_resource(PlaylistTrackManager, '/api/playlisttracks')
 
 if __name__ == '__main__':
     app.run(debug=True)
