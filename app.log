@@ -2,4 +2,4 @@ my logger - DEBUG - executing application
 werkzeug - WARNING -  * Debugger is active!
 werkzeug - INFO -  * Debugger PIN: 431-656-242
 Track Controller Logger - DEBUG - Executing get Tracks
-werkzeug - INFO - 127.0.0.1 - - [17/Oct/2022 23:48:55] "GET /api/tracks HTTP/1.1" 200 -
+werkzeug - INFO - 127.0.0.1 - - [18/Oct/2022 00:08:42] "GET /api/tracks HTTP/1.1" 200 -
