@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "7e0dc12c-60a4-436e-a8dc-bbbe4d9e5810",
+		"name": "PlaylistManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Track_GetAllTracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/tracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Track_GetSingleTrack",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/tracks?track_id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "track_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Track_CreateTrack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Nkalakatha26\",\n\t\"track_format\": \"mp3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/tracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Track_UpdateTrack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Nkalakatha9\",\n\t\"track_format\": \"mp3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/tracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist_GetAllPlaylists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlists",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist_GetSinglePlaylist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlists?playlist_id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlists"
+					],
+					"query": [
+						{
+							"key": "playlist_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist_CreatePlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Hip Hop\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlists",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playlist_UpdatePlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"HipHop\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/tracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaylistTrack_GetAllPlaylistTracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlisttracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlisttracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaylistTrack_GetSinglePlaylistTrack",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlisttracks?track_id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlisttracks"
+					],
+					"query": [
+						{
+							"key": "track_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaylistTrack_CreatePlaylistTrack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playlist_id\": 1,\n\t\"track_id\": 3\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlisttracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlisttracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaylistTrack_UpdatePlaylistTrack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Nkalakatha9\",\n\t\"track_format\": \"mp3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/playlisttracks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"playlisttracks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
