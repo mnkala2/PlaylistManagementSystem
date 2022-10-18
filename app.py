@@ -11,7 +11,7 @@ from controllers import PlaylistTrackController
 import logging
 
 # Get logger
-logger = logging.getLogger("my logger")
+logger = logging.getLogger("Playlist Management System")
 
 # Create a handler
 c_handler = logging.StreamHandler()

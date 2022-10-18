@@ -1,3 +1,6 @@
+Please refer to requirements.txt for required components
+
+
 
 I used the below components to complete the solution
 
@@ -8,7 +11,7 @@ SQLAlchemy — an ORM (Object Relational Mapper).
 
 Theoretical Questions
 • List which principles you are following with this microservice
-    The API is a restFul API usinf Flask
+    The API is a restFul API using Flask, I used the MVC pettern bacause I wanted to seperate responsibilities of each component
 • List which design patterns you have used with this microservice and why
     I used the MVC pattern
 • List where and why you used some characteristics of object oriented programming
