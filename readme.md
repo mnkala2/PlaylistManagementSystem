@@ -1,6 +1,6 @@
 Please refer to requirements.txt for required components
 
-
+Postman collection can  be found under /tests/
 
 I used the below components to complete the solution
 
